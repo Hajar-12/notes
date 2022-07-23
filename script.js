@@ -3,6 +3,9 @@ const addNote = document.querySelector('#addNote')
 const notes = JSON.parse(localStorage.getItem('notes'))
 const allNotes = document.querySelector('.all-notes');
 const deleteAll = document.querySelector('.delete-note')
+const notesContainer = document.createElement('div')
+notesContainer.classList.add('.notes-container', 'd-flex', 'justify-content-start', 'flex-wrap')
+
 if(notes){
     notes.forEach(note=>{
         addNotes(note)
@@ -12,9 +15,34 @@ if(notes){
 addNote.addEventListener('click',()=>{
     addNotes()
 })
+// DELETE ALL NOTES
 deleteAll.addEventListener('click',()=>{
-    allNotes.remove()
-    saveNote()
+    if(notesContainer.innerHTML == ''){
+        Swal.fire('you haven\'t any note')
+    }
+    else{Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#222',
+        cancelButtonColor: '#E6C713',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                notesContainer.remove()
+                notesContainer.innerHTML = ''
+                saveNote()
+              Swal.fire(
+                'Deleted!',
+                'Your notes have been deleted.',
+                'success'
+              )
+            }
+        })
+    }
+    
+  
 })
 // ADD NOTE FUNCTION 
 function addNotes(text = ''){
@@ -26,8 +54,9 @@ function addNotes(text = ''){
         <i class="font-weight-bold">X</i>
     </span>
     
-    <textarea class='noteText' rows='5' cols='10' maxlength='240'>${text}</textarea>`
-    allNotes.appendChild(notes)
+    <textarea class='noteText' rows='5' cols='10'>${text}</textarea>`
+    notesContainer.appendChild(notes)
+    allNotes.appendChild(notesContainer)
 
     const deleteButton = notes.querySelector('.delete')
     const textArea = notes.querySelector('textarea')    
