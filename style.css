@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Indie+Flower&display=swap');
+*{
+    box-sizing: border-box;
+}
+textarea{
+    max-height: 100%;
+    width: 100%; 
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: .4rem;
+    resize:none;
+    background-color:  rgb(230, 199, 19);
+}
+body{
+    /* background-color: #e0e5ec; */
+    background: #222;
+  
+}
+.note{
+    height: 200px;
+    width:250px;
+    background-color: rgb(230, 199, 19);
+    margin: 2rem;
+    margin-top: 6rem;
+    box-shadow: 5px 5px 10px -2px rgba(33,33,33,.3);
+
+}
+.note:nth-child(1n){
+    transform: rotate(-4deg);
+}
+.note:nth-child(2n){
+    transform: rotate(5deg);
+}
+.note:nth-child(3n){
+    transform: rotate(-5deg);
+}
+.note:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.note::before{
+    height: 100px;
+    width:160px;
+    content: '/1234541111123';
+    position:relative;
+    color:transparent;
+    background-color: rgba(0, 0, 0, .1);
+    top:-.4rem; 
+    left: 4rem;  
+}
+.tools{
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(230, 199, 19);
+    padding: .4rem;
+    border-radius: 5%;
+}
+span {
+    margin-left: .2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color:#222;
+    float: right;
+    padding: .4rem;
+    padding-bottom: 0;
+}
+span:hover{
+    background-color: rgb(24, 24, 24,.3);
+    border-radius: 100%;
+}
+
+
+textarea:hover{
+    cursor: pointer;
+}
+
+.add-note button{
+    margin: .5rem;
+    border: none;
+    background-color: transparent;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+}
+.notes-controllers button:hover{
+    background-color: rgb(24, 24, 24,.3);
+    padding:.3rem;
+    border-radius: 10%;
+}
+.delete i{
+    font-family: 'Indie Flower', cursive;
+    font-size: large;
+    padding: .3rem;
+}
