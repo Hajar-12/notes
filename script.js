@@ -4,7 +4,7 @@ const notes = JSON.parse(localStorage.getItem('notes'))
 const allNotes = document.querySelector('.all-notes');
 const deleteAll = document.querySelector('.delete-note')
 const notesContainer = document.createElement('div')
-notesContainer.classList.add('.notes-container', 'd-flex', 'justify-content-start')
+notesContainer.classList.add('.notes-container', 'd-flex', 'justify-content-start','flex-wrap')
 
 if(notes){
     notes.forEach(note=>{
