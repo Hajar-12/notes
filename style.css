@@ -82,9 +82,11 @@ textarea:hover{
     font-family: 'Indie Flower', cursive;
     font-weight: bold;
 }
+.notes-controllers button {
+      padding:.3rem;
+}
 .notes-controllers button:hover{
     background-color: rgb(24, 24, 24,.3);
-    padding:.3rem;
     border-radius: 10%;
 }
 .delete i{
